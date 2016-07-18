@@ -1,0 +1,24 @@
+<?php
+	include "../koneksi.php";
+	
+		$kd = $_GET['kd'];
+		$tabel = $_GET['t'];
+
+		if ($tabel=="pelanggan") {
+			$field="id";
+		}
+
+
+		$link=koneksi_db();
+		$sql="DELETE FROM $tabel WHERE $field='$kd'"; 
+		$res=mysql_query($sql,$link);
+		if ($res) {
+			header('Location: pelanggan.php?');
+		}
+		else{
+			echo "<center<h1>Gagal Menghapus Data</h1><br>";
+			echo "Error :".mysql_error();
+			echo "<br>Kembali<br>
+			<a href='menu_utama.php?menu=mata_kuliah&action=tampil'>Link ini</a></center>";
+		}
+?>

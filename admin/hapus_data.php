@@ -1,15 +1,21 @@
 <?php
+	include "../koneksi.php";
 	$kd = $_GET['kd'];
-	$tabel = $_GET['tabel'];
+	$t = $_GET['t'];
+	if ($t == "pelanggan") {
+		$tabel = "pelanggan";
+		$prim = "id";
+	}
+	else if ($t == "jadwal") {
+		$tabel = "jadwal";
+		$prim = "kd_jadwal";
+	}
 
 	$link=koneksi_db();
-	$sql="DELETE FROM $tabel WHERE kd_mk='$kd'"; //susunSQL
+	$sql="DELETE FROM $tabel WHERE $prim ='$kd'"; //susunSQL
 	$res=mysql_query($sql,$link);
 	if ($res) {
-		echo "<center><h1>Sukse Menghapus Data $id</h1>";
-		echo "untuk melihatnya silakan klik<br>
-				<a href='menu_utama.php?menu=mata_kuliah&action=tampil'>Link ini</a></center>";
-				//header('Location: menu_utama.php?menu=mata_kuliah&action=tampil');
+		header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
 	else{
 		echo "<center<h1>Gagal Menghapus Data</h1><br>";

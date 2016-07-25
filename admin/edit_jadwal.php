@@ -1,3 +1,6 @@
+<?php
+    include "session.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,36 +73,68 @@
                                 <h3 class="panel-title"><i class="fa"></i> Edit Jadwal</h3>
                             </div>
                             <div class="panel-body">
+                                <?php
+                                    include "../koneksi.php";
+                                    $kd=$_GET['kd'];
+                                    $link=koneksi_db();
+                                    $sq="SELECT * FROM jadwal WHERE kd_jadwal = '$kd'";
+                                    $ress=mysql_query($sq,$link);
+                                    $dt=mysql_fetch_array($ress);
+                                ?>
                                 <form action="index.php" method="POST" role="form">
                                     <div class="form-group">
                                         <table width="100%">
                                             <tr>
                                                 <td width="40%"><label>Kode jadwal</label></td>
-                                                <td><input class="form-control"><p class="help-block"></p></td>
+                                                <td><input class="form-control" name="kd_jadwal" value="<?php echo "$dt[0]";?>"><p class="help-block"></p></td>
+                                            </tr>
+                                            <?php
+                                                $sql="SELECT * FROM lokasi ORDER BY kota";
+                                                $res=mysql_query($sql,$link);
+                                                $res2=mysql_query($sql,$link);
+                                                
+
+                                            ?>
+                                            <tr>
+                                                <td><label>Keberangkatan</label></td>
+                                                <td><select class="form-control" name="kd_asal">
+                                                        <?php
+                                                        while ($data=mysql_fetch_array($res)) {
+                                                            if ($data[0]==$dt[1]) {
+                                                                echo "<option value=$data[0] selected='selected'>$data[1] | $data[2]</option>";
+                                                            }
+                                                            else
+                                                            echo "<option value=$data[0]>$data[1] | $data[2]</option>";
+                                                        }
+                                                        ?>
+                                                    </select><p class="help-block"></p>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td><label>Kota Keberangkatan</label></td>
-                                                <td><input class="form-control"><p class="help-block"></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label>Kota Tujuan</label></td>
-                                                <td><input class="form-control"><p class="help-block"></p></td>
+                                                <td><label>Tujuan</label></td>
+                                                <td><select class="form-control" name="kd_tujuan">
+                                                        <?php
+                                                        while ($data2=mysql_fetch_array($res2)) {
+                                                            if ($data2[0]==$dt[2]) {
+                                                                echo "<option value=$data2[0] selected='selected'>$data2[1] | $data2[2]</option>";
+                                                            }
+                                                            else
+                                                            echo "<option value=$data2[0]>$data2[1] | $data2[2]</option>";
+                                                        }
+                                                        ?>
+                                                    </select><p class="help-block"></p></td>
                                             </tr>
                                             <tr>
                                                 <td><label>Jam Keberangkatan</label></td>
-                                                <td><input class="form-control"><p class="help-block"></p></td>
+                                                <td><input class="form-control" name="jam_berangkat" value="<?php echo "$dt[3]";?>"><p class="help-block"></p></td>
                                             </tr>
                                             <tr>
                                                 <td><label>Jam Kedatangan</label></td>
-                                                <td><input class="form-control"><p class="help-block"></p></td>
-                                            </tr>
-                                            <tr>
-                                                <td><label>Kapasitas</label></td>
-                                                <td><input class="form-control"><p class="help-block"></p></td>
+                                                <td><input class="form-control" name="jam_sampai" value="<?php echo "$dt[4]";?>"><p class="help-block"></p></td>
                                             </tr>
                                             <tr>
                                                 <td><label>Harga Tiket</label></td>
-                                                <td><input class="form-control"><p class="help-block"></p></td>
+                                                <td><input class="form-control" name="harga" value="<?php echo "$dt[5]";?>"><p class="help-block"></p></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2" align="center">

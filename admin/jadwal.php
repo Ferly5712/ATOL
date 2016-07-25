@@ -1,3 +1,6 @@
+<?php
+    include "session.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,8 +125,8 @@
                                         <td><?php echo $data[3]?></td>
                                         <td><?php echo $data[4]?></td>
                                         <td><?php echo $data[5]?></td>
-                                        <td><a href="edit_jadwal.php"><img style="width:20px" src="img/edit.png"></a></td>
-                                        <td><img style="width:20px" src="img/delete.png"></td>
+                                        <td><a href="edit_jadwal.php?kd=<?php echo $data[0]?>"><img style="width:20px" src="img/edit.png"></a></td>
+                                        <td><a href="hapus_data.php?kd=<?php echo $data[0]?>&t=jadwal"><img style="width:20px" src="img/delete.png"></td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>

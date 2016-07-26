@@ -57,7 +57,7 @@
 
       <div class="row featurette">
         <div class="col-md-12">
-          <h2 class="featurette-heading"><?php echo $data[kota]?> <span class="text-muted"></span></h2>
+          <h2><?php echo $data[kota]?> <span class="text-muted"></span></h2>
           <p class="lead">
             <div class="row">
               <?php
@@ -110,6 +110,7 @@
         </div>
 
       </div>
+      <hr class="featurette-divider">
       <?php } ?>
 
 

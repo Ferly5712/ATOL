@@ -47,10 +47,7 @@
     <h1>Jadwal Keberangkatan</h1>
     </div>
 
-      <select>
-        <option>dfgdfg</option>
-        <option>-&nbspsadsad</option>
-      </select>
+      
       <!-- START THE FEATURETTES -->
       <?php
               include "koneksi.php";
@@ -98,7 +95,7 @@
                             </tr>
                             <tr>
                               <td colspan="2" align="center">
-                                  <a href="tiket.php?a=<?php echo "$data2[kd_lokasi_asal]&b=$data2[kd_lokasi_tujuan]";?>" class="btn btn-md btn-primary">Beli Tiket</a>
+                                  <a href="tiket.php?a=<?php echo "$data2[kd_lokasi_asal]&b=$data2[kd_lokasi_tujuan]&kd=$data2[kd_jadwal]";?>" class="btn btn-md btn-primary">Beli Tiket</a>
                               </td>
                             </tr>
                             </table>

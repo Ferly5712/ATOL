@@ -34,29 +34,37 @@
 	            <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li>
-                    <table width="100%" border="0">
-                      <tr>
-                        <td width="10">&nbsp</td>
-                        <td><p class="help-block"><h5 class="media-heading"><strong>Log In</strong></td>
-                         <td width="10">&nbsp</td>
-                      </tr>
-                      <tr>
-                        <td>&nbsp</td>
-                        <td><input class="form-control" placeholder="Username"><p class="help-block"></td>
-                      </tr>
-                      <tr>
-                        <td>&nbsp</td>
-                        <td><input type="password" class="form-control" placeholder="Password"><p class="help-block"></td>
-                      </tr>
-                      <tr>
-                        <td>&nbsp</td>
-                        <td align="center"><button type="submit" class="btn btn-sm btn-primary">Log In</button></td>
-                      </tr>
-                    </table>
-                  </li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Daftar Baru</a></li>
+                	<?php
+                		if ($_SESSION['user']=="") {
+                	?>
+                			 <li>
+			                    <table width="100%" border="0">
+			                      <tr>
+			                        <td width="10">&nbsp</td>
+			                        <td><p class="help-block"><h5 class="media-heading"><strong>Log In</strong></td>
+			                         <td width="10">&nbsp</td>
+			                      </tr>
+			                      <tr>
+			                        <td>&nbsp</td>
+			                        <td><input class="form-control" placeholder="Username"><p class="help-block"></td>
+			                      </tr>
+			                      <tr>
+			                        <td>&nbsp</td>
+			                        <td><input type="password" class="form-control" placeholder="Password"><p class="help-block"></td>
+			                      </tr>
+			                      <tr>
+			                        <td>&nbsp</td>
+			                        <td align="center"><button type="submit" class="btn btn-sm btn-primary">Log In</button></td>
+			                      </tr>
+			                    </table>
+			                   </li>
+			                  <li role="separator" class="divider"></li>
+			                  <li><a href="#">Daftar Baru</a></li>
+                		<?php
+                		}
+                		else{ ?>
+
+                	<?php } ?>
                 </ul>
               </li>
 	          </ul>

@@ -50,6 +50,7 @@
       <?php
               include "koneksi.php";
               $link=koneksi_db();
+              $kd=$_GET['kd'];
               $a=$_GET['a'];
               $b=$_GET['b'];
       ?>
@@ -67,37 +68,45 @@
                   <div class="col-sm-6">
                     <div class="panel panel-primary">
                       <div class="panel-body">
-                        <table class="table">
-                          <tr>
-                            <td><strong>Keberangkatan</strong></td>
-                            <td><?php echo "$asal[kota], $asal[lokasi]"; ?></td>
-                          </tr>
-                          <tr>
-                            <td><strong>Tujuan</strong></td>
-                            <td><?php echo "$tujuan[kota], $tujuan[lokasi]"; ?></td><br>
-                          </tr>
-                          <tr>
-                            <td><strong>Tanggal</strong></td>
-                            <td><input class="form-control" name="tanggal" placeholder="Hari/Bulan/Tahun"></td><br>
-                          </tr>
-                          <tr>
-                            <td><strong>Waktu</strong></td>
-                            <td>
-                              <?php
-                                $sq3="SELECT jam_pergi FROM jadwal WHERE kd_lokasi_asal = '$asal[kd_lokasi]' AND kd_lokasi_tujuan = '$tujuan[kd_lokasi]' ORDER BY jam_pergi";
-                                $res3=mysql_query($sq3,$link);
-                                while ($data3=mysql_fetch_array($res3)) {
-                                  echo "<div class='col-sm-4'><input type='radio' name='waktu' value='$data3[jam_pergi]'> $data3[jam_pergi]</div>";
-                                }
-                              ?>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td colspan="2" align="center">
-                              <a href="tiket.php?a=<?php echo "$data2[kd_lokasi_asal]&b=$data2[kd_lokasi_tujuan]";?>" class="btn btn-md btn-primary">Beli Tiket</a>
-                            </td>
-                          </tr>
+                        <form role="form" action="proses_tiket.php" method="post">
+                          <input type="hidden" name="kd_lokasi_asal" value="<?php echo "$a";?>"> 
+                          <input type="hidden" name="kd_lokasi_tujuan" value="<?php echo "$b";?>"> 
+                          <table class="table">
+                            <tr>
+                              <td><strong>Keberangkatan</strong></td>
+                              <td><?php echo "$asal[kota], $asal[lokasi]"; ?></td>
+                            </tr>
+                            <tr>
+                              <td><strong>Tujuan</strong></td>
+                              <td><?php echo "$tujuan[kota], $tujuan[lokasi]"; ?></td><br>
+                            </tr>
+                            <tr>
+                              <td><strong>Tanggal</strong></td>
+                              <td><input class="form-control" name="tanggal" placeholder="Tahun-Bulan-Tanggal"></td><br>
+                            </tr>
+                            <tr>
+                              <td><strong>Waktu</strong></td>
+                              <td>
+                                <?php
+                                  $sq3="SELECT kd_jadwal,jam_pergi FROM jadwal WHERE kd_lokasi_asal = '$asal[kd_lokasi]' AND kd_lokasi_tujuan = '$tujuan[kd_lokasi]' ORDER BY jam_pergi";
+                                  $res3=mysql_query($sq3,$link);
+                                  while ($data3=mysql_fetch_array($res3)) {
+                                    echo "<div class='col-sm-4'><input type='radio' name='waktu' value='$data3[jam_pergi]'> $data3[jam_pergi]</div>";
+                                  }
+                                ?>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td><strong>Jumlah</strong></td>
+                              <td><input class="form-control" name="jumlah" placeholder="jumlah pemesanan tiket"></td><br>
+                            </tr>
+                            <tr>
+                              <td colspan="2" align="center">
+                                <input type="submit" value="Pesan Tiket" class="btn btn-md btn-primary">
+                              </td>
+                            </tr>
                           </table>
+                        </form>
                       </div>
                     </div>
                   </div>

@@ -32,10 +32,27 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/datepicker.css">
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
 
 </head>
 
 <body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".delete").click(function(ev){
+            var con = confirm("Apa Anda yakin menghapus menu ini?");
+            if(!con)
+            {
+                ev.preventDefault();
+            }
+        });
+        
+        $(".datepicker").datepicker({format: 'yyyy/mm/dd'});
+        
+    });
+</script>
 
     <div id="wrapper">
 
@@ -63,6 +80,8 @@
                     </div>
                 </div>
                 <!-- /.row -->
+
+                
 
                 <div class="row">
                     <div class="col-lg-12">
@@ -116,6 +135,8 @@
                     </div>
                 </div>
                 <!-- /.row -->
+
+                
 
             </div>
             

@@ -1,4 +1,11 @@
 <?php
 	session_start();
-	$_SESSION['nama'] = "Super Admin";
+	
+	if ($_SESSION['nama'] == "") {
+		header('Location: index.php');
+	}
+	else{
+
+	}
+
 ?>

@@ -1,3 +1,8 @@
+<!-- Tugas besar matakuliah Atol
+     Nama Kelompok DFS
+     1. Debby
+     2. Ferly
+     3. Sony  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
+
 
     <title>Travel</title>
 
@@ -49,32 +55,32 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="Desert.jpg" alt="First slide">
+          <img class="first-slide" src="images/banner1.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+              <h1> Temani Perjalanan Anda </h1>
+              <p>Bandung - Jakarta <br> Jakarta - Bandung <br> Kendaraan yang difasilitasi dengan port mini USB, Kursi yang nyaman dan TV 32 inc</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="images/banner1.jpg" alt="Second slide">
+          <img class="second-slide" src="images/van1.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Night Howl Travel</h1>
               <p>Kami memberikan fasilitas terbaik, dengan harga bersaing</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+          <img class="third-slide" src="images/koper.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              <h1>Aman, Nyaman dan On Time</h1>
+              <p>Kepuasan anda dalam menggunakan jasa kami sangat di utamakan</p>
+              
             </div>
           </div>
         </div>
@@ -104,61 +110,70 @@
         <div class="col-lg-4">
           <img class="img-circle" src="12078-mg9762s.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Port Mini USB</h2>
-          <p>Mendukung mobilitas anda dengan blablabla</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p>Mendukung mobilitas anda selama diperjalanan,Anda dapat charger hp anda</p>
+          
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="sprint1.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Kursi nyaman</h2>
-          <p>Tempat duduk nyaman blablablab.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p>Memberikan anda kenyamanan selama perjalanan hingga tujuan.</p>
+         
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>TV</h2>
-          <p>TV blablablba.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <img class="img-circle" src="o.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2>TV 32inc</h2>
+          <p>Selama perjalanan ditemani dengan hiburan dan tontonan menarik</p>
+          
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
 
       <!-- START THE FEATURETTES -->
+      <section id="JKT" class="parallax">
+      <hr class="featurette-divider">
+
+      <div class="row featurette" >
+        <div class="col-md-7 col-md-push-1" >
+          <h2 class="featurette-heading">Aman <br><span class="text-muted">Nyaman<br></span><span class="featurett-heading">Tepat waktu keberangkatan</h2>
+          <p class="lead"><table background="images\kotak.png" ><tr><td>Kami memberikan service terbaik kepada anda </p></td></tr></table>
+        </div>
+       
+      </div>
+      </section>
+      <hr class="featurette-divider">
+      <section id="BDO" class="parallax">
+   
+        <div class="row featurette">   
+
+        <div class="col-md-12 ">
+         <img width="480px" height="500px" src="images/Model.jpg" style="float:left;">
+          <h2 class="featurette-heading">Hubungi Kami dan <span class="text-muted">Sampai Tujuan dengan Nyaman dan Tepat Waktu</span></h2>
+        
+          <div  class="contact">
+        CALL CENTER
+      </div>
+      <div class="contact-sub">
+
+         +62 21 2967 6767       </div>
+          <p  class="lead col-md-push-5">Kami memberikan service terbaik untuk kenyamanan Anda dalam menggunakan Jasa kami</p>
+               
+      </div>  
+
+      </div>
+
+      </section>
+       <section id="JKT2" class="parallax">
 
       <hr class="featurette-divider">
 
       <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <div class="col-md-7 col-md-push-1">
+          <h2 class="featurette-heading">Kepuasan pelanggan <span class="text-muted"><br>yang </span> <span class="featurette-heading">Utama</span></h2>
+          <p class="lead"><table background="images\kotak.png" ><tr><td>Kepauasan anda dalam menggunakan jasa kami, menjadi nilai penting bagi perusaahan kami</td></tr></table></p>
         </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
+        
       </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
+      </section>
 
       <hr class="featurette-divider">
 
@@ -168,7 +183,7 @@
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <br><center><p>&copy; 2016 DFS Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p></center>
       </footer>
       
      </div><!-- /.container -->

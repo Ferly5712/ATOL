@@ -16,7 +16,7 @@
         $total=$jumlah*$row['harga'];
         $x=date("Y.m.d - H:i:s");
 		
-		$sql="INSERT INTO pemesanan VALUES ('','$kd_pelanggan ','$row[kd_jadwal]','$tanggal','$jumlah','$total','$status')";
+		$sql="INSERT INTO pemesanan VALUES ('','$kd_pelanggan ','$row[kd_jadwal]','$tanggal','$jumlah','$total','$status','')";
 		$res=mysql_query($sql,$link);
 		if($res)
 		{

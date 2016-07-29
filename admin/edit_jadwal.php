@@ -81,7 +81,7 @@
                                     $ress=mysql_query($sq,$link);
                                     $dt=mysql_fetch_array($ress);
                                 ?>
-                                <form action="index.php" method="POST" role="form">
+                                <form action="edit_jadwal_proses.php" method="POST" role="form">
                                     <div class="form-group">
                                         <table width="100%">
                                             <tr>

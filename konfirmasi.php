@@ -63,7 +63,7 @@
               $kd_pelanggan = $_SESSION['id'];
       ?>
       <div class="row featurette">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <h2><?php echo $data['kota']?> <span class="text-muted"></span></h2>
           <p class="lead">
             <div class="row">
@@ -75,56 +75,57 @@
                     <div class="panel panel-primary">
                       <div class="panel-body">
                         <table class="table">
-                          <tr>
-                            <th><strong>Kode Pesan</strong></th>
-                            <th><strong>Kode Jadwal</strong></th>
-                            <th><strong>Keberangkatan</strong></th>
-                            <th><strong>Tujuan</strong></th>
-                            <th><strong>Jumlah</strong></th>
-                            <th><strong>Total</strong></th>
-                            <th><strong>Status</strong></th>
-                            <th><strong>Aksi</strong></th>
-                          </tr>
                           <?php
                           while ($data=mysql_fetch_array($res)) 
                           {?>
                             <tr>
+                              <td>Kode Pesanan</td>
                               <td><?php echo $data['kd_pesan'];?></td>
+                              <td>Kode Jadwal</td>
                               <td><?php echo $data['kd_jadwal'];?></td>
-                              <td><?php echo $data[''];?></td>
-                              <td><?php echo $data[''];?></td>
-                              <td><?php echo $data['jumlah'];?></td>
-                              <td>Rp. <?php echo $data['total'];?></td>
-                              <td>
-                                <?php
-                                                    if ($data['status']=="0") {
-                                                        echo "<span class='label label-danger'>Pending</span>";
-                                                    }
-                                                    elseif ($data['status']=="1") {
-                                                        echo "<span class='label label-warning'>konfirmasi</span>";
-                                                    }
-                                                    elseif ($data['status']=="2") {
-                                                        echo "<span class='label label-success'>Lunas</span>";
-                                                    }
-                                                ?>
-                              </td>
-                              <td>
-
-                                <?php
-                                  if ($data['status']=="0") {
-                                    ?>
-                                    <script>
-                                    function konfirm() {
-                                      window.open("<?php echo "konfirmasi.php?kd=$data[0]" ?>", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
-                                    }
-                                    </script>
-                                    <?php
-
-                                    echo "<button onclick='konfirm()' class='btn btn-sm btn-warning'>Konfirmasi</a>";
-                                  }
-                                ?>
-                              </td>
                             </tr>
+                            <tr>
+                              <td colspan="2">Keberangkatan</td>
+                              <td colspan="2"><?php echo $data[''];?></td>
+                            </tr>
+                            <tr>
+                              <td colspan="2">Tujuan</td>
+                              <td colspan="2"><?php echo $data[''];?></td>
+                            </tr>
+                            <tr>
+                              <td colspan="2">Jumlah</td>
+                              <td colspan="2"><?php echo $data['jumlah'];?></td>
+                            </tr>
+                            <tr>
+                              <td colspan="2">Total</td>
+                              <td colspan="2">Rp. <?php echo $data['total'];?></td>
+                            </tr>
+                            <tr>
+                              <td colspan="4">Silakan transfer sesuai nominal yang tertera ke salah satu nomor rekening berikut</td>
+                            </tr>
+
+                            <tr>
+                              <td>No Rekening :<br>a/n : Night Howl Travel</td>
+                              <td><img src="images/logo bri.png" width="70px"></td>
+                              <td><img src="images/Logo mandiri.png" width="100px"></td>
+                              <td><img src="images/Logo-Bca.png" width="100px"></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td>036 761 283 632 351</td>
+                              <td>138-89-4356285-6</td>
+                              <td>173 303 5474</td>
+                            </tr>
+                            <tr>
+                              <td colspan="2">Bukti Pembayaran</td>
+                              <form role="form" action="proses_konfirmasi.php" method="post">
+                                <input type="hidden" value="<?php echo $data[kd_pesan] ?>" name="kd_pesan">
+                              <td colspan="2"><input type="file" name="foto" value="Cari"></td>
+                            </tr>
+                            <tr>
+                              <td colspan="4" align="center"><button type="submit" class="btn btn-primary">Konfirmasi</button>
+                            </tr>
+                            </form>
                           <?php 
                           } ?>
                         </table>
@@ -142,18 +143,5 @@
         </div>
 
       </div>
-      
-
-
-      <hr class="featurette-divider">
-
-      
-      <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <?php
-        include "footer.php";
-      ?>
   </body>
 </html>

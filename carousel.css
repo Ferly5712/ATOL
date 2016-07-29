@@ -76,13 +76,25 @@ body {
   margin-right: 10px;
   margin-left: 10px;
 }
-
-
+.contact {
+    font-size: 30px;
+    text-align: center;
+    font-size: 72px;
+    font-weight: 800;
+    color: #636b66;
+    text-shadow: 1px 1px 1px #ffffff;
+}
+.contact-sub {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 300;
+    color: #636b66;
+}
 /* Featurettes
 ------------------------- */
 
 .featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+  margin: 30px 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */
@@ -90,6 +102,36 @@ body {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
+}
+.parallax {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+#JKT {
+  background-image: url(images/Gsate.jpg);
+  padding: 70px 50;
+  background-size: 100% 100%;
+  min-height: 700px;
+
+  color: white;
+
+}
+#BD {
+  background-image: url(images/Gsate.jpg);
+  padding: 70px 0;
+  background-size: 100% 100%;
+  min-height: 700px;
+  min-width: 600px
+  color: white;
+}
+#JKT2 {
+  background-image: url(images/Monas2.jpg);
+  padding: 70px 50;
+  background-size: 100% 100%;
+  min-height: 700px;
+  color: white;
 }
 
 

@@ -114,6 +114,15 @@
                                                     }
                                                     elseif ($data[6]=="1") {
                                                         echo "<a href='#' class='btn btn-sm btn-success'>Lunas</a>";
+                                                        ?>
+                                                        <script>
+                                                        function konfirm() {
+                                                          window.open("<?php echo "../images/konfirmasi/$data[7]" ?>", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
+                                                        }
+                                                        </script>
+                                                        <?php
+
+                                                        echo "<button onclick='konfirm()' class='btn btn-sm btn-info'>Bukti Transfer</a>";
                                                     }
                                                 ?>
                                             </td>

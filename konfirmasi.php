@@ -61,6 +61,7 @@
               include "koneksi.php";
               $link=koneksi_db();
               $kd_pelanggan = $_SESSION['id'];
+              $kd_pesan = $_GET['kd'];
       ?>
       <div class="row featurette">
         <div class="col-md-6">
@@ -68,7 +69,7 @@
           <p class="lead">
             <div class="row">
               <?php
-                $sql="SELECT * FROM pemesanan WHERE kd_pelanggan = '$kd_pelanggan' ";
+                $sql="SELECT * FROM pemesanan WHERE kd_pesan = '$kd_pesan' ";
                 $res=mysql_query($sql,$link);
                 if (mysql_num_rows ($res)>=1) {?>
                   <div class="col-sm-12">
@@ -120,7 +121,7 @@
                               <td colspan="2">Bukti Pembayaran</td>
                               <form role="form" action="proses_konfirmasi.php" method="post">
                                 <input type="hidden" value="<?php echo $data[kd_pesan] ?>" name="kd_pesan">
-                              <td colspan="2"><input type="file" name="foto" value="Cari"></td>
+                              <td colspan="2"><input type="file" name="foto" value="cari"></td>
                             </tr>
                             <tr>
                               <td colspan="4" align="center"><button type="submit" class="btn btn-primary">Konfirmasi</button>

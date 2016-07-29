@@ -5,7 +5,6 @@
 	{
 		//Deklarasi Variabel
 		$kd_pesan = $_POST['kd_pesan'];
-
 		//upload foto
 		$lokasi_file = $_FILES['foto']['tmp_name'];
 		$tipe_file = $_FILES['foto']['type'];
@@ -16,7 +15,9 @@
 		//upload file
 		move_uploaded_file($lokasi_file,$direktori);
 		$link=koneksi_db();
-		$sql="UPDATE pemesanan SET bukti='$kd_pesan.extensi' WHERE kd_pesan='$kd_pesan' ";//susun sql
+		$sql = "INSERT INTO pemesanan(bukti) 
+		VALUES
+		('$kd_pesan.$extensi');"; //susun SQL
 		$res = mysql_query($sql,$link);
 		if ($res) 
 		{
@@ -26,7 +27,7 @@
 			if (!empty($lokasi_file)) 
 			{
 				//merubah nama foto
-				rename("images/konfirmasi/$nama_file","images/konfirmasi/$kd_pesan.extensi");
+				rename("images/konfirmasi/$nama_file","images/konfirmasi/$nim.extensi");
 			}
 		}
 		else

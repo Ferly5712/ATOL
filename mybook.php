@@ -53,15 +53,13 @@
 
     <div class="container marketing">
     <div class="panel-heading">
-    <h1>Pesan Tiket</h1>
+    <h1>Pesanan saya</h1>
     </div>
       <!-- START THE FEATURETTES -->
       <?php
               include "koneksi.php";
               $link=koneksi_db();
-              $kd=$_GET['kd'];
-              $a=$_GET['a'];
-              $b=$_GET['b'];
+              $kd_pelanggan = $_SESSION['id'];
       ?>
       <div class="row featurette">
         <div class="col-md-12">
@@ -69,64 +67,71 @@
           <p class="lead">
             <div class="row">
               <?php
-                $result=mysql_query("SELECT kd_lokasi,kota,lokasi FROM lokasi WHERE kd_lokasi='$a' ");
-                $result2=mysql_query("SELECT kd_lokasi,kota,lokasi FROM lokasi WHERE kd_lokasi='$b' ");
-                $asal=mysql_fetch_array($result);
-                $tujuan=mysql_fetch_array($result2);
-                ?>
-                  <div class="col-sm-6">
+                $sql="SELECT * FROM pemesanan WHERE kd_pelanggan = '$kd_pelanggan' ";
+                $res=mysql_query($sql,$link);
+                if (mysql_num_rows ($res)>=1) {?>
+                  <div class="col-sm-12">
                     <div class="panel panel-primary">
                       <div class="panel-body">
-                        <form role="form" action="proses_tiket.php" method="post">
-                          <input type="hidden" name="kd_lokasi_asal" value="<?php echo "$a";?>"> 
-                          <input type="hidden" name="kd_lokasi_tujuan" value="<?php echo "$b";?>"> 
-                          <table class="table">
+                        <table class="table">
+                          <tr>
+                            <th><strong>Kode Pesan</strong></th>
+                            <th><strong>Kode Jadwal</strong></th>
+                            <th><strong>Keberangkatan</strong></th>
+                            <th><strong>Tujuan</strong></th>
+                            <th><strong>Jumlah</strong></th>
+                            <th><strong>Total</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>Aksi</strong></th>
+                          </tr>
+                          <?php
+                          while ($data=mysql_fetch_array($res)) 
+                          {?>
                             <tr>
-                              <td><strong>Keberangkatan</strong></td>
-                              <td><?php echo "$asal[kota], $asal[lokasi]"; ?></td>
-                            </tr>
-                            <tr>
-                              <td><strong>Tujuan</strong></td>
-                              <td><?php echo "$tujuan[kota], $tujuan[lokasi]"; ?></td><br>
-                            </tr>
-                            <tr>
-                              <td><strong>Tanggal</strong></td>
-                              <td><input class="form-control" name="tanggal" placeholder="Tahun-Bulan-Tanggal" required autofocus></td><br>
-                            </tr>
-                            <tr>
-                              <td><strong>Waktu</strong></td>
+                              <td><?php echo $data['kd_pesan'];?></td>
+                              <td><?php echo $data['kd_jadwal'];?></td>
+                              <td><?php echo $data[''];?></td>
+                              <td><?php echo $data[''];?></td>
+                              <td><?php echo $data['jumlah'];?></td>
+                              <td>Rp. <?php echo $data['total'];?></td>
                               <td>
                                 <?php
-                                  $sq3="SELECT kd_jadwal,jam_pergi FROM jadwal WHERE kd_lokasi_asal = '$asal[kd_lokasi]' AND kd_lokasi_tujuan = '$tujuan[kd_lokasi]' ORDER BY jam_pergi";
-                                  $res3=mysql_query($sq3,$link);
-                                  while ($data3=mysql_fetch_array($res3)) {
-                                    echo "<div class='col-sm-4'><input type='radio' name='waktu' value='$data3[jam_pergi]' required> $data3[jam_pergi]</div>";
+                                                    if ($data['status']=="0") {
+                                                        echo "<span class='label label-danger'>Pending</span>";
+                                                    }
+                                                    elseif ($data['status']=="1") {
+                                                        echo "<span class='label label-warning'>konfirmasi</span>";
+                                                    }
+                                                    elseif ($data['status']=="2") {
+                                                        echo "<span class='label label-success'>Lunas</span>";
+                                                    }
+                                                ?>
+                              </td>
+                              <td>
+                                <?php
+                                  if ($data['status']=="0") {
+                                    echo "<a href='#' class='btn btn-sm btn-warning'>Konfirmasi</a>";
                                   }
                                 ?>
                               </td>
                             </tr>
-                            <tr>
-                              <td><strong>Jumlah</strong></td>
-                              <td><input class="form-control" name="jumlah" placeholder="jumlah pemesanan tiket" required ></td><br>
-                            </tr>
-                            <tr>
-                              <td colspan="2" align="center">
-                                <input type="submit" value="Pesan Tiket" class="btn btn-md btn-primary">
-                              </td>
-                            </tr>
-                          </table>
-                        </form>
+                          <?php 
+                          } ?>
+                        </table>
                       </div>
                     </div>
                   </div>
-                  
-               
-
+                <?php 
+                }
+                else{
+                  echo "<div class='alert alert-info' role='alert'><strong>Anda belum pernah memesan tiket,</strong> <a href='jadwal.php'>Pesan Sekarang</a></div>";
+                }
+                
+                ?>
             </div>
         </div>
 
       </div>
-      <hr class="featurette-divider">
       
 
 

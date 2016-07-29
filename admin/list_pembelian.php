@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Travel Admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -68,33 +68,57 @@
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Kode Pesan</th>
                                         <th>Id Pelanggan</th>
                                         <th>Kode Jadwal</th>
                                         <th>Tanggal Keberangkatan</th>
-                                        <th>Harga Tiket</th>
+                                        <th>Jumlah</th>
+                                        <th>Total</th>
                                         <th>Status</th>
-                                        <th colspan="2">Aksi</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>kode</td>
-                                        <td>starat</td>
-                                        <td>finish</td>
-                                        <td>harga</td>
-                                        <td><a href="#" class="btn btn-success">Lunas</a></td>
-                                        <td></td>
-                                        <td><a href="edit_jadwal.php"><img style="width:20px" src="img/edit.png"></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>kode</td>
-                                        <td>starat</td>
-                                        <td>finish</td>
-                                        <td>harga</td>
-                                        <td><a href="#" class="btn btn-warning">konfirmasi</a></td>
-                                        <td><a href="#" class="btn btn-success">Lunas</a></td>
-                                        <td><a href="edit_jadwal.php"><img style="width:20px" src="img/edit.png"></a></td>
-                                    </tr>
+                                    <?php
+                                        include "../koneksi.php";
+                                        $link=koneksi_db();
+                                        $sql="SELECT * FROM pemesanan";
+                                        $res=mysql_query($sql,$link);
+                                        while ($data=mysql_fetch_array($res)) {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $data[0] ?></td>
+                                            <td><?php echo $data[1] ?></td>
+                                            <td><?php echo $data[2] ?></td>
+                                            <td><?php echo $data[3] ?></td>
+                                            <td><?php echo $data[4] ?></td>
+                                            <td><?php echo $data[5] ?></td>
+                                            <td><font size="4">
+                                                <?php
+                                                    if ($data[6]=="0") {
+                                                        echo "<span class='label label-danger'>Pending</span>";
+                                                    }
+                                                    elseif ($data[6]=="1") {
+                                                        echo "<span class='label label-warning'>konfirmasi</span>";
+                                                    }
+                                                    elseif ($data[6]=="2") {
+                                                        echo "<span class='label label-success'>Lunas</span>";
+                                                    }
+                                                ?>
+                                                </font>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                    if ($data[6]=="0") {
+                                                        echo "<a href='#' class='btn btn-sm btn-warning'>Konfirmasi</a>";
+                                                    }
+                                                    elseif ($data[6]=="1") {
+                                                        echo "<a href='#' class='btn btn-sm btn-success'>Lunas</a>";
+                                                    }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

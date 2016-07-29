@@ -4,7 +4,7 @@
 	$t = $_GET['t'];
 	if ($t == "pelanggan") {
 		$tabel = "pelanggan";
-		$prim = "id";
+		$prim = "kd_pelanggan";
 	}
 	else if ($t == "jadwal") {
 		$tabel = "jadwal";

@@ -83,7 +83,7 @@
                                             ?>
                                             <tr>
                                                 <td><label>Nama Pelanggan</label></td>
-                                                <td><select class="form-control" name="id">
+                                                <td><select class="form-control" name="kd_pelanggan">
                                                         <?php
                                                         while ($data=mysql_fetch_array($res)) {
                                                             echo "<option value=$data[0]>$data[1] | $data[4]</option>";
@@ -113,13 +113,17 @@
                                             ?>
                                             <tr>
                                                 <td><label>Tujuan</label></td>
-                                                <td><select class="form-control" name="kd_asal">
+                                                <td><select class="form-control" name="kd_tujuan">
                                                         <?php
                                                         while ($data2=mysql_fetch_array($tujuan)) {
                                                             echo "<option value=$data2[0]>$data2[1] | $data2[2]</option>";
                                                         }
                                                         ?>
                                                     </select><p class="help-block"></p></td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>Tanggal</strong></td>
+                                              <td><input class="form-control" name="tanggal" placeholder="Tahun-Bulan-Tanggal"><p class="help-block"></p></td>
                                             </tr>
                                             <tr>
                                                 <td><label>Jumlah</label></td>

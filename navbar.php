@@ -17,56 +17,53 @@
 	            <li><a href="index.php">Beranda</a></li>
 	            <li><a href="jadwal.php">Lokasi & Jadwal</a></li>
 	            <li><a href="#contact">Contact</a></li>
-	            <li class="dropdown">
-	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-	              <ul class="dropdown-menu">
-	                <li><a href="#">Action</a></li>
-	                <li><a href="#">Another action</a></li>
-	                <li><a href="#">Something else here</a></li>
-	                <li role="separator" class="divider"></li>
-	                <li class="dropdown-header">Nav header</li>
-	                <li><a href="#">Separated link</a></li>
-	                <li><a href="#">One more separated link</a></li>
-	              </ul>
-	            </li>
 	          </ul>
 	          <ul class="nav navbar-nav navbar-right">
+	          	<?php
+                if ($_SESSION['user']=="") {
+              ?>
 	            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                	<?php
-                		if ($_SESSION['user']=="") {
-                	?>
-                			 <li>
-			                    <table width="100%" border="0">
-			                      <tr>
-			                        <td width="10">&nbsp</td>
-			                        <td><p class="help-block"><h5 class="media-heading"><strong>Log In</strong></td>
-			                         <td width="10">&nbsp</td>
-			                      </tr>
-			                      <tr>
-			                        <td>&nbsp</td>
-			                        <td><input class="form-control" placeholder="Username"><p class="help-block"></td>
-			                      </tr>
-			                      <tr>
-			                        <td>&nbsp</td>
-			                        <td><input type="password" class="form-control" placeholder="Password"><p class="help-block"></td>
-			                      </tr>
-			                      <tr>
-			                        <td>&nbsp</td>
-			                        <td align="center"><button type="submit" class="btn btn-sm btn-primary">Log In</button></td>
-			                      </tr>
-			                    </table>
-			                   </li>
-			                  <li role="separator" class="divider"></li>
-			                  <li><a href="#">Daftar Baru</a></li>
-                		<?php
-                		}
-                		else{ ?>
-
-                	<?php } ?>
-                </ul>
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+                	<ul class="dropdown-menu">
+	                	<li>
+	                		<form action="login.php" role="form" method="post">
+					           	<table width="100%" border="0">
+						           	<tr>
+						                <td width="10">&nbsp</td>
+						                <td><p class="help-block"><h5 class="media-heading"><strong>Log In</strong></td>
+						                <td width="10">&nbsp</td>
+						            </tr>
+						            <tr>
+						                <td>&nbsp</td>
+						                <td><input class="form-control" placeholder="username" name="username" required><p class="help-block"></td>
+						            </tr>
+						            <tr>
+						                <td>&nbsp</td>
+						                <td><input type="password" class="form-control" placeholder="password" name="password" required><p class="help-block"></td>
+						            </tr>
+						            <tr>
+						              <td>&nbsp</td>
+						              <td align="center"><button type="submit" class="btn btn-sm btn-primary" id="login">Log In</button></td>
+						            </tr>
+					            </table>
+					            </form>
+				            </li>
+				            <li role="separator" class="divider"></li>
+				            <li><a href="signup.php">Daftar Baru</a></li>
+                	</ul>
               </li>
+              <?php
+              }
+                else{ ?>
+                	<li class="dropdown">
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['user'] ?><span class="caret"></span></a>
+                	<ul class="dropdown-menu">
+	                	<li><a href="mybook.php">Pesanan saya</a></li>
+				            <li role="separator" class="divider"></li>
+				            <li><a href="logout.php">Log out</a></li>
+                	</ul>
+              </li>
+              <?php } ?>
 	          </ul>
 	        </div><!--/.nav-collapse -->
 	      </div>

@@ -44,6 +44,14 @@
         
         <input class="btn btn-lg btn-primary btn-block" type="submit" value="Log in">
       </form>
+      <?php
+      if (isset($_GET['er'])) { ?>
+        <div class="alert alert-danger" role="alert">
+                    <strong>Username atau Password Salah,</strong> Silakan Ulangi Kembali
+                  </div> 
+      <?php
+        }
+      ?>
 
     </div> <!-- /container -->
 

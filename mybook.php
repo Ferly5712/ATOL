@@ -87,12 +87,22 @@
                           </tr>
                           <?php
                           while ($data=mysql_fetch_array($res)) 
-                          {?>
+                          {
+                            $result=mysql_query("SELECT * FROM jadwal WHERE kd_jadwal='$data[kd_jadwal]' ");
+                            $row=mysql_fetch_array($result);
+
+                            $result2=mysql_query("SELECT * FROM lokasi WHERE kd_lokasi='$row[kd_lokasi_asal]' ");
+                            $asal=mysql_fetch_array($result2);
+
+                            $result3=mysql_query("SELECT * FROM lokasi WHERE kd_lokasi='$row[kd_lokasi_tujuan]' ");
+                            $tujuan=mysql_fetch_array($result3);
+
+                            ?>
                             <tr>
                               <td><?php echo $data['kd_pesan'];?></td>
                               <td><?php echo $data['kd_jadwal'];?></td>
-                              <td><?php echo $data[''];?></td>
-                              <td><?php echo $data[''];?></td>
+                              <td><?php echo "$asal[kota], $asal[lokasi]";?></td>
+                              <td><?php echo "$tujuan[kota], $tujuan[lokasi]";?></td>
                               <td><?php echo $data['jumlah'];?></td>
                               <td>Rp. <?php echo $data['total'];?></td>
                               <td>
@@ -101,7 +111,7 @@
                                                         echo "<span class='label label-danger'>Pending</span>";
                                                     }
                                                     elseif ($data['status']=="1") {
-                                                        echo "<span class='label label-warning'>konfirmasi</span>";
+                                                        echo "<span class='label label-warning'>Proses Konfirmasi</span>";
                                                     }
                                                     elseif ($data['status']=="2") {
                                                         echo "<span class='label label-success'>Lunas</span>";
@@ -112,15 +122,14 @@
 
                                 <?php
                                   if ($data['status']=="0") {
-                                    ?>
+                                    /*
                                     <script>
                                     function konfirm() {
                                       window.open("<?php echo "konfirmasi.php?kd=$data[0]" ?>", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=600,height=600");
                                     }
                                     </script>
-                                    <?php
-
-                                    echo "<button onclick='konfirm()' class='btn btn-sm btn-warning'>Konfirmasi</a>";
+                                    */
+                                    echo "<a href='konfirmasi.php?kd=$data[0]' class='btn btn-sm btn-warning'>Konfirmasi</a>";
                                   }
                                 ?>
                               </td>

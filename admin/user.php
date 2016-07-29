@@ -67,14 +67,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Pelanggan
+                            User
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa"></i> Pelanggan
+                                <i class="fa"></i> User
                             </li>
                         </ol>
                     </div>
@@ -90,10 +90,10 @@
                                 <form role="form">
                                     <table width="100%">
                                         <tr>
-                                            <td><a href="tambah_pelanggan.php" class="btn btn-primary">Tambah Pelanggan</a></td>
-                                            <td width="250"><input class="form-control" placeholder="Cari Nama Pelanggan"></td>
+                                            <td><a href="tambah_user.php" class="btn btn-primary">Tambah User</a></td>
+                                            <td width="250">
                                             <td width="5">&nbsp</td>
-                                            <td width="55"><button type="submit" class="btn btn-primary">Cari</button></td>
+                                            <td width="55">
                                         </tr>
                                     </table>
                                 </form>
@@ -105,8 +105,6 @@
                                             <tr>
                                                 <th>Nama</th>
                                                 <th>Username</th>
-                                                <th>e-Mail</th>
-                                                <th>No. handphone</th>
                                                 <th colspan="2">Aksi</th>
                                             </tr>
                                         </thead>
@@ -114,17 +112,15 @@
                                             <?php
                                             include "../koneksi.php";
                                             $link=koneksi_db();
-                                            $sql="SELECT * FROM pelanggan ORDER BY nama";
+                                            $sql="SELECT * FROM user ORDER BY nama";
                                             $res=mysql_query($sql,$link);
                                             while ($data=mysql_fetch_array($res)) {
                                             ?>
                                             <tr>
-                                                <td><?php echo $data[1] ?></td>
                                                 <td><?php echo $data[4] ?></td>
-                                                <td><?php echo $data[2] ?></td>
-                                                <td><?php echo $data[3] ?></td>
-                                                <td><a href="edit_pelanggan.php?kd=<?php echo $data[0]?>"><img style="width:20px" src="img/edit.png"></a></td>
-                                                <td><a href="hapus_data.php?kd=<?php echo $data[0]?>&t=pelanggan"><img style="width:20px" src="img/delete.png"></td>
+                                                <td><?php echo $data[1] ?></td>
+                                                <td><a href="edit_user.php?kd=<?php echo $data[0]?>"><img style="width:20px" src="img/edit.png"></a></td>
+                                                <td><a href="hapus_data.php?kd=<?php echo $data[0]?>&t=user"><img style="width:20px" src="img/delete.png"></td>
                                             </tr>
                                             <?php } ?>
                                         </tbody>

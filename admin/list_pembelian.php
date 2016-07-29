@@ -63,7 +63,22 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" align="right">
+                                <form role="form">
+                                    <table width="100%">
+                                        <tr>
+                                            <td></td>
+                                            <td width="250"><input class="form-control"></td>
+                                            <td width="5">&nbsp</td>
+                                            <td width="55"><button type="submit" class="btn btn-primary">Cari</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                            <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-hover table-striped">
                                 <thead>
@@ -110,10 +125,10 @@
                                             <td>
                                                 <?php
                                                     if ($data[6]=="0") {
-                                                        echo "<a href='#' class='btn btn-sm btn-warning'>Konfirmasi</a>";
+                                                        echo "<a href='konfirmasi.php?a=1&kd=$data[0]' class='btn btn-sm btn-warning'>Konfirmasi</a>";
                                                     }
                                                     elseif ($data[6]=="1") {
-                                                        echo "<a href='#' class='btn btn-sm btn-success'>Lunas</a>";
+                                                        echo "<a href='konfirmasi.php?a=2&kd=$data[0]' class='btn btn-sm btn-success'>Lunas</a>";
                                                         ?>
                                                         <script>
                                                         function konfirm() {
@@ -130,7 +145,10 @@
                                     <?php } ?>
                                 </tbody>
                             </table>
+                                </div>
+                            </div>
                         </div>
+                    </div>
                 </div>
                 <!-- /.row -->
 

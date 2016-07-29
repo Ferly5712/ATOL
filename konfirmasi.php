@@ -78,7 +78,16 @@
                         <table class="table">
                           <?php
                           while ($data=mysql_fetch_array($res)) 
-                          {?>
+                          {
+                            $result=mysql_query("SELECT * FROM jadwal WHERE kd_jadwal='$data[kd_jadwal]' ");
+                            $row=mysql_fetch_array($result);
+
+                            $result2=mysql_query("SELECT * FROM lokasi WHERE kd_lokasi='$row[kd_lokasi_asal]' ");
+                            $asal=mysql_fetch_array($result2);
+
+                            $result3=mysql_query("SELECT * FROM lokasi WHERE kd_lokasi='$row[kd_lokasi_tujuan]' ");
+                            $tujuan=mysql_fetch_array($result3);
+                            ?>
                             <tr>
                               <td>Kode Pesanan</td>
                               <td><?php echo $data['kd_pesan'];?></td>
@@ -87,11 +96,11 @@
                             </tr>
                             <tr>
                               <td colspan="2">Keberangkatan</td>
-                              <td colspan="2"><?php echo $data[''];?></td>
+                              <td colspan="2"><?php echo "$asal[kota], $asal[lokasi]";?></td>
                             </tr>
                             <tr>
                               <td colspan="2">Tujuan</td>
-                              <td colspan="2"><?php echo $data[''];?></td>
+                              <td colspan="2"><?php echo "$tujuan[kota], $tujuan[lokasi]";?></td>
                             </tr>
                             <tr>
                               <td colspan="2">Jumlah</td>

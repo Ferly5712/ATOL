@@ -10,6 +10,10 @@
 		$tabel = "jadwal";
 		$prim = "kd_jadwal";
 	}
+	else if ($t == "user") {
+		$tabel = "user";
+		$prim = "id";
+	}
 
 	$link=koneksi_db();
 	$sql="DELETE FROM $tabel WHERE $prim ='$kd'"; //susunSQL

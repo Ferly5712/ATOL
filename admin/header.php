@@ -34,22 +34,17 @@
                         <a href="jadwal.php"><i class="fa fa-fw fa-bar-chart-o"></i> Jadwal</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Tiket <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="pembelian_tiket.php">Pembelian Tiket</a>
-                            </li>
-                            <li>
-                                <a href="list_pembelian.php">List Pembelian</a>
-                            </li>
-                            <li>
-                                <a href="#">Konfirmasi Pesanan</a>
-                            </li>
-                        </ul>
+                        <a href="list_pembelian.php"><i class="fa fa-fw fa-bar-chart-o"></i>List Pembelian</a>
                     </li>
                     <li>
                         <a href="pelanggan.php"><i class="fa fa-fw fa-bar-chart-o"></i> Pelanggan</a>
                     </li>
+                    <?php
+                    //if ($_SESSION['priv']=="") {
+                        echo "<li><a href='user.php'><i class='fa fa-fw fa-bar-chart-o'></i> User (Admin)</a></li>";
+                        //echo "$_SESSION[priv]";
+                    //}
+                    ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
